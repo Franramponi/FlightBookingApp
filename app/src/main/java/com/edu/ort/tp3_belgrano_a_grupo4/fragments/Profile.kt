@@ -1,8 +1,8 @@
 package com.edu.ort.tp3_belgrano_a_grupo4.fragments
 
-import android.app.Activity
-import android.content.Intent
+
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +11,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat.finishAffinity
-import androidx.navigation.NavArgs
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.preference.PreferenceManager
 import com.edu.ort.tp3_belgrano_a_grupo4.R
 
 class Profile : Fragment() {
@@ -24,6 +22,9 @@ class Profile : Fragment() {
     private lateinit var referralButton: LinearLayout
     private lateinit var settingButton: LinearLayout
     private lateinit var logoutButton: LinearLayout
+
+
+   // private  val PREFERENCE_KEYS:
     companion object {
         val BUTTON_BACK = R.id.btn_back_fragment_perfil
         val BUTTON_PAY = R.id.layout_payment
@@ -52,6 +53,10 @@ class Profile : Fragment() {
         super.onStart()
         initListeners()
 
+        val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+
+        Log.d("Preferencias", prefs.getBoolean("night_mode", false).toString())
+
     }
 
     private fun initViews() {
@@ -66,9 +71,15 @@ class Profile : Fragment() {
         backButton.setOnClickListener { navigateToHome() }
         payButton.setOnClickListener { navigateToScreenDeve() }
         referralButton.setOnClickListener { navigateToScreenDeve() }
-        settingButton.setOnClickListener { navigateToHome() }
+        settingButton.setOnClickListener { navigateToSetting() }
         logoutButton.setOnClickListener { navigateToLogout() }
     }
+
+    private fun navigateToSetting() {
+        val action = ProfileDirections.actionProfileToSetting2()
+        viewProfile.findNavController().navigate(action)
+    }
+
     private fun alertCerrarSesion() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle(R.string.txt_cerrar_sesion)
