@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    style="@style/general"
     android:padding="16dp"
     tools:context=".fragments.PantallaEnDesarrollo"
     tools:layout_editor_absoluteX="0dp"
@@ -38,6 +38,7 @@
     <TextView
         android:id="@+id/descrip_screen_dev"
         style="@style/descriptionTextScreenDev"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -54,6 +55,7 @@
         android:clickable="true"
         android:focusable="true"
         android:padding="10dp"
+        android:background="@drawable/round_backgroud"
         android:src="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

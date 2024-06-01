@@ -28,6 +28,16 @@
     /Header Drawer/
     <string name="txt_hello_header_drawer">Hello</string>
 
+    /Custom Search/
+    <string name="txt_title_search_action_bar">Search Flight</string>
+
+    /Custom Offers/
+    <string name="txt_title_offers_action_bar">Offers</string>
+
+    /Config Modo Oscuro/
+    <string name="txt_config_setting">Generales</string>
+    <string name="txt_mode_dark_setting">Modo Oscuro</string>
+
 
     <string-array name="spinner_pasajeros">
         <item>Seleccionar Pasajeros</item>

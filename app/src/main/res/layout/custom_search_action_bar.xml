@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/custom_search_action_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="15dp">
-
-    <ImageView
-        android:id="@+id/btn_back_toolbar_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back"
-        android:layout_gravity="center"
-        android:layout_marginRight="28dp"
-        app:tint="@color/black"/>
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/title_toolbar_search"
@@ -22,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Search Flight"
+        android:text="@string/txt_title_search_action_bar"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="50dp" />
 
@@ -30,10 +18,9 @@
         android:id="@+id/three_point_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/points"
-        android:layout_gravity="end"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="35dp"
-        app:tint="@color/black" />
+        android:textAlignment="center"
+        android:src="@drawable/puntos"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="35dp" />
 
 </LinearLayout>

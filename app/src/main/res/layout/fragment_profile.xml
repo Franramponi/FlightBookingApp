@@ -5,14 +5,14 @@
     android:id="@+id/fragment_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    style="@style/general"
     tools:context=".fragments.Profile">
 
 
     <ImageView
         android:id="@+id/imagen_portada"
         android:layout_width="match_parent"
-        android:layout_height="235dp"
+        android:layout_height="231dp"
         android:src="@drawable/portada_profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         style="@style/txtSubEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:layout_marginBottom="10dp"
         android:text="@string/ubi_profile"
         app:layout_constraintBottom_toTopOf="@+id/id_des_avatar"
