@@ -14,7 +14,11 @@
         android:id="@+id/search"
         android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.Search"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_explore"
+            app:destination="@id/explore" />
+    </fragment>
     <fragment
         android:id="@+id/offers"
         android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.Offers"
@@ -24,5 +28,21 @@
         android:id="@+id/profile"
         android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.Profile"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_pantallaEnDesarrollo"
+            app:destination="@id/pantallaEnDesarrollo" />
+        <action
+            android:id="@+id/action_profile_to_explore"
+            app:destination="@id/explore" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaEnDesarrollo"
+        android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.PantallaEnDesarrollo"
+        android:label="fragment_pantalla_en_desarrollo"
+        tools:layout="@layout/fragment_pantalla_en_desarrollo" >
+        <action
+            android:id="@+id/action_pantallaEnDesarrollo_to_explore"
+            app:destination="@id/explore" />
+    </fragment>
 </navigation>
