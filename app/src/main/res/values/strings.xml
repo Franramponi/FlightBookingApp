@@ -38,4 +38,26 @@
     <string name="txt_config_setting">Generales</string>
     <string name="txt_mode_dark_setting">Modo Oscuro</string>
 
+
+    <string-array name="spinner_pasajeros">
+        <item>Seleccionar Pasajeros</item>
+        <item>1 pasajero</item>
+        <item>2 pasajeros</item>
+        <item>3 pasajeros</item>
+        <item>4 pasajeros</item>
+    </string-array>
+
+    <string-array name="spinner_clase">
+        <item>Seleccionar clase</item>
+        <item>Economica</item>
+        <item>Económica premium</item>
+        <item>Ejecutiva</item>
+        <item>Primera clase</item>
+    </string-array>
+
+
+    <string name="item_name">Name</string>
+    <string name="item_position">Position</string>
+
+
 </resources>

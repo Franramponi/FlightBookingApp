@@ -5,7 +5,7 @@
         android:id="@+id/explore"/>
     <item android:title="@string/search"
         android:icon="@drawable/search"
-        android:id="@+id/search"/>
+        android:id="@+id/fragment_search"/>
     <item android:title="@string/offers"
         android:icon="@drawable/ic_offers"
         android:id="@+id/offers"/>
