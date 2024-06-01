@@ -3,6 +3,7 @@ package com.edu.ort.tp3_belgrano_a_grupo4
 import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +25,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navigationView: NavigationView
     private lateinit var toolbar: Toolbar
 
+
     //Lista de fragmentos se ocultar la bottom bar y action bar
     private val sinActionBar = setOf(
         R.id.profile,
-        R.id.pantallaEnDesarrollo
+        R.id.pantallaEnDesarrollo,
+        R.id.fragment_search
+    )
 
+    private val conKebabActionBar = setOf(
+        R.id.fragment_search
     )
     private val fragmentsWithoutBottomNav = setOf(
         R.id.pantallaEnDesarrollo
@@ -57,8 +63,9 @@ class MainActivity : AppCompatActivity() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         bottomNavigationView = findViewById(R.id.bottom_navbar)
         toolbar= findViewById(R.id.toolbar)
+
     }
-    private fun configToolbar() {
+    private fun configToolbar( ) {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -66,6 +73,8 @@ class MainActivity : AppCompatActivity() {
         val inflaterToolbar = layoutInflater
         val toolbarLayout = inflaterToolbar.inflate(R.layout.custom_home_action_bar, toolbar, false)
         toolbar.addView(toolbarLayout)
+
+
 
     }
 
@@ -92,6 +101,8 @@ class MainActivity : AppCompatActivity() {
         if (destination.id in sinActionBar) {
             supportActionBar?.hide()
             toolbar.visibility = View.GONE
+        } else if (destination.id in conKebabActionBar ) {
+            toolbar.visibility = View.VISIBLE
         } else {
             toolbar.visibility = View.VISIBLE
         }
