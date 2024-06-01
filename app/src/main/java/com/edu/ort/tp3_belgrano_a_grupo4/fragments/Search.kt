@@ -1,60 +1,144 @@
 package com.edu.ort.tp3_belgrano_a_grupo4.fragments
 
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import androidx.navigation.fragment.findNavController
 import com.edu.ort.tp3_belgrano_a_grupo4.R
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.com.edu.ort.tp3_belgrano_a_grupo4.adapters.CustomSpinnerAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Search.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Search : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var viewSearch: View
+    private lateinit var btnOneWay: Button
+    private lateinit var btnRoundTrip: Button
+    private lateinit var editTextDepartureDate: EditText
+    private lateinit var editTextArrivalDate: EditText
+    private lateinit var spinnerPasajeros: Spinner
+    private lateinit var anotherSpinner: Spinner
+    private lateinit var btnSearch: Button
+
+    companion object {
+        val BTN_ONE_DAY_ID = R.id.btnOneWay
+        val BTN_ROUND_TRIP_ID = R.id.btnRoundTrip
+        val INPUT_DEPARTURE_DATE_ID = R.id.et_departure_date
+        val INPUT_ARRIVAL_DATE_ID = R.id.et_arrival_date
+        val BTN_SEARCH_ID = R.id.btnSearch
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+
+        viewSearch =  inflater.inflate(R.layout.fragment_search, container, false)
+
+
+        initViews()
+        initListeners()
+        initSpinners()
+        btnOneWay.isSelected = true
+        updateButtonAppearance()
+
+        return viewSearch
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Search.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Search().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun initViews() {
+        btnOneWay = viewSearch.findViewById(BTN_ONE_DAY_ID)
+        btnRoundTrip = viewSearch.findViewById(BTN_ROUND_TRIP_ID)
+        editTextDepartureDate =viewSearch.findViewById(INPUT_DEPARTURE_DATE_ID)
+        editTextArrivalDate =viewSearch.findViewById(INPUT_ARRIVAL_DATE_ID)
+        spinnerPasajeros = viewSearch.findViewById(R.id.pasajeros)
+        anotherSpinner = viewSearch.findViewById(R.id.clases)
+        btnSearch = viewSearch.findViewById(BTN_SEARCH_ID)
     }
+
+    private fun initListeners() {
+        btnOneWay.setOnClickListener {
+            btnOneWay.isSelected = true
+            btnRoundTrip.isSelected = false
+            updateButtonAppearance()
+            editTextArrivalDate.visibility = View.GONE
+        }
+
+        btnRoundTrip.setOnClickListener{
+            btnOneWay.isSelected = false
+            btnRoundTrip.isSelected = true
+            updateButtonAppearance()
+            editTextArrivalDate.visibility = View.VISIBLE
+        }
+        editTextDepartureDate.setOnClickListener { showDatePicker(editTextDepartureDate) }
+        editTextArrivalDate.setOnClickListener { showDatePicker(editTextArrivalDate) }
+
+        btnSearch.setOnClickListener { navigateToResults() }
+    }
+
+    private fun updateButtonAppearance() {
+        // Método para actualizar la apariencia de los botones según su estado de selección
+        if (btnOneWay.isSelected) {
+            btnOneWay.setBackgroundResource(R.drawable.selected_button_background)
+            btnOneWay.setTextColor(resources.getColor(android.R.color.white))
+            btnRoundTrip.setBackgroundResource(R.drawable.unselected_button_background)
+            btnRoundTrip.setTextColor(resources.getColor(android.R.color.darker_gray))
+        } else {
+            btnRoundTrip.setBackgroundResource(R.drawable.selected_button_background)
+            btnRoundTrip.setTextColor(resources.getColor(android.R.color.white))
+            btnOneWay.setBackgroundResource(R.drawable.unselected_button_background)
+            btnOneWay.setTextColor(resources.getColor(android.R.color.darker_gray))
+        }
+    }
+
+    private fun showDatePicker(editText: EditText) {
+        // Obtener la fecha actual
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Crear un DatePickerDialog y mostrarlo
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+            // Actualizar el texto del EditText con la fecha seleccionada
+            val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            editText.setText(selectedDate)
+        }, year, month, dayOfMonth)
+
+        // Mostrar el DatePickerDialog
+        datePickerDialog.show()
+    }
+
+
+    private fun initSpinners() {
+        // Configurar el adaptador del spinner de pasajeros
+        val pasajerosArray = resources.getStringArray(R.array.spinner_pasajeros).toList()
+        val pasajeroIcono = R.drawable.ic_pasajeros
+        val listaIconoPasajero = List(pasajerosArray.size) { pasajeroIcono }
+        val pasajeroAdapter = CustomSpinnerAdapter(requireContext(), pasajerosArray, listaIconoPasajero)
+        spinnerPasajeros.adapter = pasajeroAdapter
+
+        // Configurar el adaptador del otro spinner
+        val clasesArray = resources.getStringArray(R.array.spinner_clase).toList()
+        val claseIcono = R.drawable.ic_clases
+        val listaIconoClase = List(clasesArray.size) { claseIcono }
+        val claseAdapter = CustomSpinnerAdapter(requireContext(), clasesArray, listaIconoClase)
+        anotherSpinner.adapter = claseAdapter
+    }
+
+
+    private fun navigateToResults() {
+        val action = SearchDirections.actionSearchToSearchResult()
+        findNavController().navigate(action)
+    }
+
 }
