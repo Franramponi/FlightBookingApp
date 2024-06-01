@@ -1,14 +1,14 @@
 package com.edu.ort.tp3_belgrano_a_grupo4
 
-import android.nfc.Tag
+import android.content.res.Configuration
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -23,7 +23,126 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
-    private lateinit var toolbar: Toolbar
+
+
+
+    //Lista de fragmentos se ocultar la bottom bar y action bar
+    private val sinActionBar = setOf(
+        R.id.profile,
+        R.id.pantallaEnDesarrollo
+
+    )
+    private val fragmentsWithoutBottomNav = setOf(
+        R.id.pantallaEnDesarrollo
+    )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+        initViews()
+        configActionbar()
+        setupDrawerLayout()
+        NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
+        //Observador de cambios de destino, se activa cada vez que cambia el destino de navegación
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+            invalidateOptionsMenu() // Cambia de fragment se llama a onPrepareOptionsMenu
+            actionBar(destination)// Oculta la actionBar y la bottom navigation en los fragmentos requeridos
+            hidenBottomBarFragments(destination)
+
+            updateActionBarLayout(destination)
+
+            updateActionBarIcon(destination)
+        }
+    }
+
+    private fun initViews() {
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.drawer_nav)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        bottomNavigationView = findViewById(R.id.bottom_navbar)
+    }
+
+    private fun configActionbar() {
+        supportActionBar?.apply {
+            setDisplayShowTitleEnabled(false)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowCustomEnabled(true)
+            setHamburguerIconColor()
+        }
+    }
+
+    private fun setupDrawerLayout() {
+        val navController = navHostFragment.navController
+        navigationView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navHostFragment.navController, drawerLayout)
+    }
+
+    private fun actionBar(destination: NavDestination) {
+        if (destination.id in sinActionBar) {
+            supportActionBar?.hide()
+        } else {
+            supportActionBar?.show()
+        }
+    }
+
+    private fun hidenBottomBarFragments(destination: NavDestination) {
+        if (destination.id in fragmentsWithoutBottomNav) {
+            bottomNavigationView.visibility = View.GONE
+        } else {
+            bottomNavigationView.visibility = View.VISIBLE
+        }
+    }
+
+    //Actualiza el icono si esta en el home, se muestra el menu, si no el boton para volver
+    private fun updateActionBarIcon(destination: NavDestination) {
+        if (destination.id == R.id.explore ) {
+            //|| destination.id == R.id.setting
+            setHamburguerIconColor()
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        } else {
+            supportActionBar?.setHomeAsUpIndicator(null)
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
+    }
+    private fun updateActionBarLayout(destination: NavDestination) {
+        val layoutResId = when (destination.id) {
+            R.id.fragment_search -> R.layout.custom_search_action_bar
+            R.id.offers -> R.layout.custom_offert_action_bar
+            else -> R.layout.custom_home_action_bar // Default layout
+        }
+
+        supportActionBar?.customView = null
+        val customView = layoutInflater.inflate(layoutResId, null)
+        supportActionBar?.customView = customView
+    }
+    private fun setHamburguerIconColor() {
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        when (nightMode) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_claro)
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_oscuro)
+                supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.colorActionBarBackgroundLight)))
+            }
+        }
+    }
+
+}
+/*
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+
+
 
 
     //Lista de fragmentos se ocultar la bottom bar y action bar
@@ -39,13 +158,14 @@ class MainActivity : AppCompatActivity() {
     private val fragmentsWithoutBottomNav = setOf(
         R.id.pantallaEnDesarrollo
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         initViews()
-        configToolbar()
+        configActionbar()
         setupDrawerLayout()
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
         //Observador de cambios de destino, se activa cada vez que cambia el destino de navegación
@@ -54,6 +174,9 @@ class MainActivity : AppCompatActivity() {
             actionBar(destination)// Oculta la actionBar y la bottom navigation en los fragmentos requeridos
             hidenBottomBarFragments(destination)
 
+            updateActionBarLayout(destination)
+
+            updateActionBarIcon(destination)
         }
     }
 
@@ -62,6 +185,17 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.drawer_nav)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         bottomNavigationView = findViewById(R.id.bottom_navbar)
+<<<<<<< HEAD
+    }
+
+    private fun configActionbar() {
+        supportActionBar?.apply {
+            setDisplayShowTitleEnabled(false)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowCustomEnabled(true)
+            setHamburguerIconColor()
+        }
+=======
         toolbar= findViewById(R.id.toolbar)
 
     }
@@ -76,39 +210,31 @@ class MainActivity : AppCompatActivity() {
 
 
 
+>>>>>>> Develop
     }
 
     private fun setupDrawerLayout() {
         val navController = navHostFragment.navController
         navigationView.setupWithNavController(navController)
-
-        navController.addOnDestinationChangedListener { _, _, _ ->
-            supportActionBar?.setHomeAsUpIndicator(R.drawable.icon_hamburguesa)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
-
-        return false
+       return NavigationUI.navigateUp(navHostFragment.navController, drawerLayout)
     }
 
     private fun actionBar(destination: NavDestination) {
         if (destination.id in sinActionBar) {
             supportActionBar?.hide()
+<<<<<<< HEAD
+=======
             toolbar.visibility = View.GONE
         } else if (destination.id in conKebabActionBar ) {
             toolbar.visibility = View.VISIBLE
+>>>>>>> Develop
         } else {
-            toolbar.visibility = View.VISIBLE
+            supportActionBar?.show()
         }
     }
-
-
 
     private fun hidenBottomBarFragments(destination: NavDestination) {
         if (destination.id in fragmentsWithoutBottomNav) {
@@ -117,4 +243,41 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.visibility = View.VISIBLE
         }
     }
+
+    //Actualiza el icono si esta en el home, se muestra el menu, si no el boton para volver
+    private fun updateActionBarIcon(destination: NavDestination) {
+        if (destination.id == R.id.explore ) {
+            //|| destination.id == R.id.setting
+            setHamburguerIconColor()
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        } else {
+            supportActionBar?.setHomeAsUpIndicator(null)
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
+    }
+    private fun updateActionBarLayout(destination: NavDestination) {
+        val layoutResId = when (destination.id) {
+            R.id.fragment_search -> R.layout.custom_search_action_bar
+            R.id.offers -> R.layout.custom_offert_action_bar
+            else -> R.layout.custom_home_action_bar // Default layout
+        }
+
+        supportActionBar?.customView = null
+        val customView = layoutInflater.inflate(layoutResId, null)
+        supportActionBar?.customView = customView
+    }
+    private fun setHamburguerIconColor() {
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        when (nightMode) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_claro)
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_oscuro)
+                supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.colorActionBarBackgroundLight)))
+            }
+        }
+    }
+
 }
+*/

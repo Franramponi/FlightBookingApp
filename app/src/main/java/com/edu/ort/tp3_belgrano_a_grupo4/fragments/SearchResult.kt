@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.edu.ort.tp3_belgrano_a_grupo4.R
 
-class search_result : Fragment() {
+class SearchResult : Fragment() {
     private lateinit var viewSearchResult: View
 
     override fun onCreate(savedInstanceState: Bundle?) {

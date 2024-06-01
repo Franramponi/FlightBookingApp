@@ -5,7 +5,7 @@
     android:id="@+id/fragment_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FB"
+    style="@style/general"
     tools:context=".fragments.Search">
 
     <ScrollView
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,9 +58,9 @@
                 android:layout_gravity="end"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/points"
+                android:src="@drawable/puntos"
                 app:tint="@color/black" />
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="346dp"
