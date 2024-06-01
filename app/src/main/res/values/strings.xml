@@ -6,4 +6,58 @@
     <string name="search">Search</string>
     <string name="offers">Offers</string>
     <string name="profile">Profile</string>
+
+
+    /Profile/
+    <string name="ubi_profile">Baguio, Philippines</string>
+    <string name="name_profile">Macy Johnson</string>
+    <string name="des_profile">I like the beach, mountains, forest and everything about nature! :)</string>
+    <string name="txt_pay">Payment Details</string>
+    <string name="txt_referral">Referral Code</string>
+    <string name="txt_setting">Settings</string>
+    <string name="txt_logut">Logout</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="txt_pregunta_cerrar_sesion">¿Estás seguro que quieres cerrar sesión?</string>
+    <string name="txt_cerrar_sesion">Cerrar Sesion</string>
+    <string name="txt_sesion_cerrada">Sesion Cerrada</string>
+
+    /Pantalla en desarrollo/
+    <string name="title_screen_dev">Pantalla en desarrollo</string>
+    <string name="des_screen_dev">Estamos trabajando para mejorar tu experiencia. ¡Gracias por tu paciencia!</string>
+
+    /Header Drawer/
+    <string name="txt_hello_header_drawer">Hello</string>
+
+    /Custom Search/
+    <string name="txt_title_search_action_bar">Search Flight</string>
+
+    /Custom Offers/
+    <string name="txt_title_offers_action_bar">Offers</string>
+
+    /Config Modo Oscuro/
+    <string name="txt_config_setting">Generales</string>
+    <string name="txt_mode_dark_setting">Modo Oscuro</string>
+
+
+    <string-array name="spinner_pasajeros">
+        <item>Seleccionar Pasajeros</item>
+        <item>1 pasajero</item>
+        <item>2 pasajeros</item>
+        <item>3 pasajeros</item>
+        <item>4 pasajeros</item>
+    </string-array>
+
+    <string-array name="spinner_clase">
+        <item>Seleccionar clase</item>
+        <item>Economica</item>
+        <item>Económica premium</item>
+        <item>Ejecutiva</item>
+        <item>Primera clase</item>
+    </string-array>
+
+
+    <string name="item_name">Name</string>
+    <string name="item_position">Position</string>
+
+
 </resources>

@@ -2,20 +2,204 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
+    android:id="@+id/fragment_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/general"
     tools:context=".fragments.Profile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/hello_blank_fragment"
+
+    <ImageView
+        android:id="@+id/imagen_portada"
+        android:layout_width="match_parent"
+        android:layout_height="231dp"
+        android:src="@drawable/portada_profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/btn_back_fragment_perfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/round_backgroud"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <ImageView
+        android:id="@+id/lapiz_fragment_perfil"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/round_backgroud"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/lapiz_editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.986"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.062" />
+
+
+    <ImageView
+        android:id="@+id/id_avatar_profile"
+        style="@style/profileImageRound"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="40dp"
+        android:focusable="true"
+        android:src="@drawable/image_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/id_ubi_avatar"
+        style="@style/txtSubEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/ubi_profile"
+        app:layout_constraintBottom_toTopOf="@+id/id_des_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_avatar_profile"
+        app:layout_constraintVertical_bias="0.914" />
+
+    <TextView
+        android:id="@+id/id_name_avatar"
+        style="@style/titleViewEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/name_profile"
+        app:layout_constraintBottom_toTopOf="@+id/id_ubi_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_avatar_profile"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/id_des_avatar"
+        style="@style/txtDesProfile"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="@string/des_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_portada" />
+
+    <View
+        android:id="@+id/divisor_profile"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_des_avatar"
+        app:layout_constraintVertical_bias="0.565" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:layout_marginBottom="112dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_portada"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:id="@+id/layout_payment"
+            style="@style/profileItem">
+
+            <ImageView
+                android:id="@+id/icon_payment_profile"
+                style="@style/profileIcon"
+                android:src="@drawable/icon_payment" />
+
+            <TextView
+                android:id="@+id/txt_pay_details_profile"
+                style="@style/profileText"
+                android:text="@string/txt_pay" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_referral"
+            style="@style/profileItem">
+
+            <ImageView
+                android:id="@+id/icon_referral_profile"
+                style="@style/profileIcon"
+                android:src="@drawable/icon_referral" />
+
+            <TextView
+                android:id="@+id/txt_referral_code_profile"
+                style="@style/profileText"
+                android:text="@string/txt_referral" />
+
+            <ImageView
+                android:id="@+id/icon_referral_new_profile"
+                style="@style/profileIconNew"
+                android:src="@drawable/icon_new_referral" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_setting"
+            style="@style/profileItem">
+
+            <ImageView
+                android:id="@+id/icon_setting_profile"
+                style="@style/profileIcon"
+                android:src="@drawable/icon_settings" />
+
+            <TextView
+                android:id="@+id/txt_setting_profile"
+                style="@style/profileText"
+                android:text="@string/txt_setting" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_logout"
+            style="@style/profileItem">
+
+            <ImageView
+                android:id="@+id/icon_logout_profile"
+                style="@style/profileIcon"
+                android:src="@drawable/icon_logout" />
+
+            <TextView
+                android:id="@+id/txt_logout_profile"
+                style="@style/profileText"
+                android:text="@string/txt_logut" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

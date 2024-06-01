@@ -1,60 +1,114 @@
 package com.edu.ort.tp3_belgrano_a_grupo4.fragments
 
+
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.navigation.findNavController
+import androidx.preference.PreferenceManager
 import com.edu.ort.tp3_belgrano_a_grupo4.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Profile.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Profile : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var viewProfile: View
+    private lateinit var backButton: ImageView
+    private lateinit var payButton: LinearLayout
+    private lateinit var referralButton: LinearLayout
+    private lateinit var settingButton: LinearLayout
+    private lateinit var logoutButton: LinearLayout
 
+
+   // private  val PREFERENCE_KEYS:
+    companion object {
+        val BUTTON_BACK = R.id.btn_back_fragment_perfil
+        val BUTTON_PAY = R.id.layout_payment
+        val BUTTON_REFERRA = R.id.layout_referral
+        val BUTTON_SETTING = R.id.layout_setting
+        val BUTTON_LOGOUT = R.id.layout_logout
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        viewProfile =  inflater.inflate(R.layout.fragment_profile, container, false)
+        requireActivity().actionBar?.hide()
+
+        initViews()
+
+
+        return viewProfile
+    }
+    override fun onStart() {
+        super.onStart()
+        initListeners()
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+
+        Log.d("Preferencias", prefs.getBoolean("night_mode", false).toString())
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Profile.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Profile().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun initViews() {
+        backButton = viewProfile.findViewById(BUTTON_BACK)
+        payButton = viewProfile.findViewById(BUTTON_PAY)
+        referralButton = viewProfile.findViewById(BUTTON_REFERRA)
+        settingButton= viewProfile.findViewById(BUTTON_SETTING)
+        logoutButton = viewProfile.findViewById(BUTTON_LOGOUT)
+    }
+
+    private fun initListeners() {
+        backButton.setOnClickListener { navigateToHome() }
+        payButton.setOnClickListener { navigateToScreenDeve() }
+        referralButton.setOnClickListener { navigateToScreenDeve() }
+        settingButton.setOnClickListener { navigateToSetting() }
+        logoutButton.setOnClickListener { navigateToLogout() }
+    }
+
+    private fun navigateToSetting() {
+        val action = ProfileDirections.actionProfileToSetting2()
+        viewProfile.findNavController().navigate(action)
+    }
+
+    private fun alertCerrarSesion() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(R.string.txt_cerrar_sesion)
+        builder.setMessage(R.string.txt_pregunta_cerrar_sesion)
+        builder.setPositiveButton(R.string.txt_cerrar_sesion) { dialog, _ ->
+            // Cerrar sesión
+            Toast.makeText(requireContext(), R.string.txt_sesion_cerrada, Toast.LENGTH_SHORT).show()
+            val activity = requireActivity() //->Activity asociada al fragment
+            activity.finish()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton(R.string.cancelar) { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.create().show()
+    }
+    private fun navigateToScreenDeve() {
+        val action = ProfileDirections.actionProfileToPantallaEnDesarrollo()
+        viewProfile.findNavController().navigate(action)
+
+    }
+
+    private fun navigateToLogout() {
+        alertCerrarSesion()
+    }
+
+    private fun navigateToHome() {
+        val action = ProfileDirections.actionProfileToExplore()
+        viewProfile.findNavController().navigate(action)
     }
 }
+
