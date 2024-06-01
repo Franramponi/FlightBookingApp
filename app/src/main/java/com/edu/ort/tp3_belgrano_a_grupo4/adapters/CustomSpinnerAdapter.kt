@@ -1,4 +1,4 @@
-package com.edu.ort.tp3_belgrano_a_grupo4.adapters
+package com.edu.ort.tp3_belgrano_a_grupo4.adapters.com.edu.ort.tp3_belgrano_a_grupo4.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

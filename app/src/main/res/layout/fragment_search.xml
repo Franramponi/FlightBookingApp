@@ -8,6 +8,13 @@
     android:background="#F8F9FB"
     tools:context=".fragments.Search">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +64,7 @@
 
         <LinearLayout
             android:layout_width="346dp"
-            android:layout_height="550dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="32dp"
             android:layout_marginRight="0dp"
@@ -67,8 +74,8 @@
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/background_btn_searchs"
                 android:orientation="horizontal"
                 android:padding="16dp">
@@ -91,7 +98,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="460dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <EditText
@@ -135,6 +142,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/background_input_form_search_"
                     android:clickable="true"
+                    android:drawableLeft="@drawable/ic_calendar"
                     android:focusable="false"
                     android:hint="Seleccionar fecha de vuelta"
                     android:inputType="none"
@@ -170,6 +178,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:backgroundTint="#F99A0E"
                     android:text="Search"
                     android:textColor="@color/white"
@@ -178,4 +187,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

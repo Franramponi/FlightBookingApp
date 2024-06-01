@@ -12,7 +12,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
 import com.edu.ort.tp3_belgrano_a_grupo4.R
-import com.edu.ort.tp3_belgrano_a_grupo4.adapters.CustomSpinnerAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.com.edu.ort.tp3_belgrano_a_grupo4.adapters.CustomSpinnerAdapter
 
 
 class Search : Fragment() {
