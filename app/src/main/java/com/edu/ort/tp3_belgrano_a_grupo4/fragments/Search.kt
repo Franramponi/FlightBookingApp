@@ -13,24 +13,30 @@ import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
 import com.edu.ort.tp3_belgrano_a_grupo4.R
 import com.edu.ort.tp3_belgrano_a_grupo4.adapters.com.edu.ort.tp3_belgrano_a_grupo4.adapters.CustomSpinnerAdapter
+import com.google.android.material.textfield.TextInputLayout
 
 
 class Search : Fragment() {
     private lateinit var viewSearch: View
     private lateinit var btnOneWay: Button
     private lateinit var btnRoundTrip: Button
+    private lateinit var editTextDeparture: EditText
     private lateinit var editTextDepartureDate: EditText
+    private lateinit var editTextArrival: EditText
     private lateinit var editTextArrivalDate: EditText
-    private lateinit var spinnerPasajeros: Spinner
-    private lateinit var anotherSpinner: Spinner
+    private lateinit var textInputLayoutArrivalDate: TextInputLayout
     private lateinit var btnSearch: Button
 
     companion object {
         val BTN_ONE_DAY_ID = R.id.btnOneWay
         val BTN_ROUND_TRIP_ID = R.id.btnRoundTrip
+        val INPUT_DEPARTURE_ID = R.id.et_departure
         val INPUT_DEPARTURE_DATE_ID = R.id.et_departure_date
+        val INPUT_ARRIVAL_ID = R.id.et_arrival
         val INPUT_ARRIVAL_DATE_ID = R.id.et_arrival_date
+        val TEXT_INPUT_LAYOUT_ARRIVAL_DATE_ID = R.id.textInputLayoutArrivalDate
         val BTN_SEARCH_ID = R.id.btnSearch
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +54,9 @@ class Search : Fragment() {
 
         initViews()
         initListeners()
-        initSpinners()
         btnOneWay.isSelected = true
         updateButtonAppearance()
+
 
         return viewSearch
     }
@@ -58,11 +64,14 @@ class Search : Fragment() {
     private fun initViews() {
         btnOneWay = viewSearch.findViewById(BTN_ONE_DAY_ID)
         btnRoundTrip = viewSearch.findViewById(BTN_ROUND_TRIP_ID)
-        editTextDepartureDate =viewSearch.findViewById(INPUT_DEPARTURE_DATE_ID)
-        editTextArrivalDate =viewSearch.findViewById(INPUT_ARRIVAL_DATE_ID)
-        spinnerPasajeros = viewSearch.findViewById(R.id.pasajeros)
-        anotherSpinner = viewSearch.findViewById(R.id.clases)
+        editTextDepartureDate = viewSearch.findViewById(INPUT_DEPARTURE_DATE_ID)
+        editTextArrivalDate = viewSearch.findViewById(INPUT_ARRIVAL_DATE_ID)
+        textInputLayoutArrivalDate = viewSearch.findViewById(TEXT_INPUT_LAYOUT_ARRIVAL_DATE_ID) // Utilizo este ID para ocultar el campo
         btnSearch = viewSearch.findViewById(BTN_SEARCH_ID)
+        editTextDeparture = viewSearch.findViewById(INPUT_DEPARTURE_ID)
+        editTextArrival = viewSearch.findViewById(INPUT_ARRIVAL_ID)
+        // Initially hide the arrival date field
+        textInputLayoutArrivalDate.visibility = View.GONE
     }
 
     private fun initListeners() {
@@ -70,21 +79,22 @@ class Search : Fragment() {
             btnOneWay.isSelected = true
             btnRoundTrip.isSelected = false
             updateButtonAppearance()
-            editTextArrivalDate.visibility = View.GONE
+            textInputLayoutArrivalDate.visibility = View.GONE
         }
-
-        btnRoundTrip.setOnClickListener{
+        btnRoundTrip.setOnClickListener {
             btnOneWay.isSelected = false
             btnRoundTrip.isSelected = true
             updateButtonAppearance()
-            editTextArrivalDate.visibility = View.VISIBLE
+            textInputLayoutArrivalDate.visibility = View.VISIBLE
         }
         editTextDepartureDate.setOnClickListener { showDatePicker(editTextDepartureDate) }
         editTextArrivalDate.setOnClickListener { showDatePicker(editTextArrivalDate) }
-
         btnSearch.setOnClickListener { navigateToResults() }
+        setupEditTextBehavior(editTextDeparture, "Select Departure")
+        setupEditTextBehavior(editTextArrival, "Select Arrival")
+        setupEditTextBehavior(editTextDepartureDate, "Select Date")
+        setupEditTextBehavior(editTextArrivalDate, "Select Date")
     }
-
     private fun updateButtonAppearance() {
         // Método para actualizar la apariencia de los botones según su estado de selección
         if (btnOneWay.isSelected) {
@@ -101,44 +111,40 @@ class Search : Fragment() {
     }
 
     private fun showDatePicker(editText: EditText) {
-        // Obtener la fecha actual
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        // Crear un DatePickerDialog y mostrarlo
         val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
-            // Actualizar el texto del EditText con la fecha seleccionada
-            val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-            editText.setText(selectedDate)
-        }, year, month, dayOfMonth)
+            val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+            editText.setText(date)
+        }, year, month, day)
 
-        // Mostrar el DatePickerDialog
         datePickerDialog.show()
     }
 
 
-    private fun initSpinners() {
-        // Configurar el adaptador del spinner de pasajeros
-        val pasajerosArray = resources.getStringArray(R.array.spinner_pasajeros).toList()
-        val pasajeroIcono = R.drawable.ic_pasajeros
-        val listaIconoPasajero = List(pasajerosArray.size) { pasajeroIcono }
-        val pasajeroAdapter = CustomSpinnerAdapter(requireContext(), pasajerosArray, listaIconoPasajero)
-        spinnerPasajeros.adapter = pasajeroAdapter
-
-        // Configurar el adaptador del otro spinner
-        val clasesArray = resources.getStringArray(R.array.spinner_clase).toList()
-        val claseIcono = R.drawable.ic_clases
-        val listaIconoClase = List(clasesArray.size) { claseIcono }
-        val claseAdapter = CustomSpinnerAdapter(requireContext(), clasesArray, listaIconoClase)
-        anotherSpinner.adapter = claseAdapter
-    }
 
 
     private fun navigateToResults() {
         val action = SearchDirections.actionSearchToSearchResult()
         findNavController().navigate(action)
+    }
+
+
+    private fun setupEditTextBehavior(editText: EditText, defaultText: String) {
+        editText.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                if (editText.text.toString() == defaultText) {
+                    editText.setText("")
+                }
+            } else {
+                if (editText.text.toString().isEmpty()) {
+                    editText.setText(defaultText)
+                }
+            }
+        }
     }
 
 }
