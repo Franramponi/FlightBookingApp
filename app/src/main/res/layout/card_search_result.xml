@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:id="@+id/img_logo"
+                    android:layout_width="48dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop"
+                    android:elevation="2dp"
+                    />
+
+                <TextView
+                    android:id="@+id/name_airline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="United Airlines"
+                    android:textColor="#7E8B97"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingEnd="3dp">
+
+                <ImageView
+                    android:id="@+id/durationImage"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_timer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/duration_airline"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/duration_airline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="01 hr 40min"
+                    android:textColor="#7E8B97"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="12dp">
+
+                <TextView
+                    android:id="@+id/id_Origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="EZE"
+                    android:textColor="#1262AE"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_Origin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ezeiza International Airport"
+                    android:textColor="#191919" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/airplaneImg"
+                android:layout_width="48dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:contentDescription="TODO"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_traveling_airline"></ImageView>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:id="@+id/id_Destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="IAH"
+                    android:textColor="#1262AE"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_Destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="George Bush Intercontinental Airport"
+                    android:textColor="#191919" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F8F9FB"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/name_class"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/chair"
+                    android:text="Business Class" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/fromPriceText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="4sp"
+                        android:text="From"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/id_price"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/id_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:gravity="end"
+                        android:text="$1128"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_viewDetails"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/orange"
+                android:text="View Details" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
