@@ -34,6 +34,11 @@
     /Custom Offers/
     <string name="txt_title_offers_action_bar">Offers</string>
 
+    /Custom Search Result/
+    <string name="txt_title_one_search_result_action_bar">EZE</string>
+    <string name="txt_title_two_search_result_action_bar">LAX</string>
+    <string name="txt_sub_title_search_result_action_bar">29 July, 2022</string>
+
     /Config Modo Oscuro/
     <string name="txt_config_setting">Generales</string>
     <string name="txt_mode_dark_setting">Modo Oscuro</string>

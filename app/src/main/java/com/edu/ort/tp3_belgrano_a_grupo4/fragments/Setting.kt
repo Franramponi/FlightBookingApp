@@ -1,85 +1,89 @@
 package com.edu.ort.tp3_belgrano_a_grupo4.fragments
 
-import android.content.SharedPreferences
+
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.preference.Preference
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 import androidx.preference.SwitchPreference
 import com.edu.ort.tp3_belgrano_a_grupo4.R
-class Setting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
-    private val NIGHT_MODE_KEY = "night_mode"
+import com.edu.ort.tp3_belgrano_a_grupo4.database.AppDatabase
+import com.edu.ort.tp3_belgrano_a_grupo4.database.dao.NightModeSettingsDao
+import com.edu.ort.tp3_belgrano_a_grupo4.database.entities.NightModeSettings
+import kotlinx.coroutines.launch
+
+class Setting : PreferenceFragmentCompat(){
+
+    private val NIGHT_MODE_KEY_SWITCH = "night_mode"
+    private lateinit var appDatabase: AppDatabase
+    private lateinit var nightModeSettingsDao: NightModeSettingsDao
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.setting, rootKey)
 
-        val switchNightMode = findPreference<SwitchPreference>(NIGHT_MODE_KEY)
+        // Inicializa la  database y el DAO
+        appDatabase = AppDatabase.getInstance(requireContext())
+        nightModeSettingsDao = appDatabase.nightModeSettingsDao()
 
-        // Establece el escuchador de cambios para la preferencia
-        switchNightMode?.onPreferenceChangeListener = object : Preference.OnPreferenceChangeListener {
-            override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-                val isNightModeEnabled = newValue as? Boolean ?: false // Maneja valores null
+        // Carga la configuración del modo nocturno desde la base de datos
+        loadNightModeSettings()
+    }
 
-                // Guarda el estado actual del modo nocturno
-                saveNightModeState(isNightModeEnabled)
+    private fun loadNightModeSettings() {
+        lifecycleScope.launch {
+            try {
+                val isNightModeEnabled = nightModeSettingsDao.getNightModeEnabled() ?: false
+                val switchPreference = findPreference<SwitchPreference>(NIGHT_MODE_KEY_SWITCH)
 
-                if (isNightModeEnabled) {
-                    enableDarkMode()
-                } else {
-                    disableDarkMode()
+                // Actualiza el switch según la info recuperada de la base de datos
+                switchPreference?.isChecked = isNightModeEnabled
+
+                // Establece el listener para el cambio en el switch
+                switchPreference?.setOnPreferenceChangeListener { _, newValue ->
+                    val newIsNightModeEnabled = newValue as Boolean
+                    lifecycleScope.launch {
+                        updateNightModeSettings(newIsNightModeEnabled)
+                    }
+                    true
                 }
-                return true
+
+            } catch (e: Exception) {
+                Log.e("SettingFragment", "Error al cargar el modo oscuro en la database", e)
             }
         }
     }
-    private fun saveNightModeState(isNightModeEnabled: Boolean) {
-        // Obtiene las SharedPreferences y guarda el estado del modo nocturno
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        sharedPreferences.edit().putBoolean(NIGHT_MODE_KEY, isNightModeEnabled).apply()
-    }
 
+    private suspend fun updateNightModeSettings(isNightModeEnabled: Boolean) {
+        try {
+            // Inserta o actualiza el modo nocturno en la base de datos
+            nightModeSettingsDao.insertNightModeSettings(NightModeSettings(isNightModeEnabled = isNightModeEnabled))
 
-    private fun enableDarkMode() {
-        val activity = requireActivity() as AppCompatActivity
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-        // Aplica el modo nocturno actual a la actividad
-        activity.delegate.applyDayNight()
-    }
-
-    private fun disableDarkMode() {
-        val activity = requireActivity() as AppCompatActivity
-
-        // Establece el modo nocturno predeterminado como "no"
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        activity.delegate.applyDayNight()
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        // Registra el escuchador de cambios en las SharedPreferences
-        preferenceScreen.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-        // Desregistra el escuchador de cambios en las SharedPreferences
-        preferenceScreen.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
-    }
-
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-        // Si la clave cambiada es "night_mode", actualiza el modo oscuro
-        if (key == NIGHT_MODE_KEY) {
-            val isNightModeEnabled = sharedPreferences.getBoolean(NIGHT_MODE_KEY, false)
+            //Dependiendo el valor que llegue por parametro activa el modo oscuro o no
             if (isNightModeEnabled) {
                 enableDarkMode()
             } else {
                 disableDarkMode()
             }
+        } catch (e: Exception) {
+            Log.e("SettingFragment", "Error al guardar el modo oscuro en la database", e)
         }
     }
+
+    private fun enableDarkMode() {
+        // Habilita el modo oscuro
+        val activity = requireActivity() as AppCompatActivity
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        activity.delegate.applyDayNight()
+    }
+
+    private fun disableDarkMode() {
+        // Deshabilita el modo oscuro
+        val activity = requireActivity() as AppCompatActivity
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        activity.delegate.applyDayNight()
+
+    }
+
 }

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginLeft="70dp">
 
     <TextView
         android:id="@+id/title_toolbar_search"
@@ -11,16 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/txt_title_search_action_bar"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="60dp" />
 
     <ImageView
         android:id="@+id/three_point_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:src="@drawable/puntos"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="35dp" />
+        android:layout_gravity="end"
+        android:padding="5dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/puntos"/>
 
 </LinearLayout>
