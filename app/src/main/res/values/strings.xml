@@ -55,7 +55,19 @@
         <item>Primera clase</item>
     </string-array>
 
+    /Explore/
+    <string name="trending">Trending Destinations</string>
+    <string name="offers_day">Offers</string>
+    <string name="btn_flight_explore">Flight</string>
 
+    /cardView Weekly/
+    <string name="weekly_from">FROM</string>
+    <string name="weekly_price">price</string>
+    <string name="weekly_pais">Pais</string>
+    /cardView trending/
+
+    /cardView offer/
+    <string name="special_offers">Limited time offer!</string>
     <string name="item_name">Name</string>
     <string name="item_position">Position</string>
 
