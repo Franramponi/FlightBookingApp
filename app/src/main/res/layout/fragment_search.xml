@@ -5,7 +5,7 @@
     android:id="@+id/fragment_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FB"
+    style="@style/subGeneral"
     tools:context=".fragments.Search">
 
     <ScrollView
@@ -73,9 +73,9 @@
                             android:id="@+id/et_departure"
                             android:layout_width="320dp"
                             android:layout_height="56dp"
+                            style="@style/OutlinedBoxDark"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/black"
                             android:drawableLeft="@drawable/ic_departure"
                             android:hint="From"
                             android:text="Select Departure" />
@@ -94,7 +94,7 @@
                             android:layout_height="56dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="30dp"
-                            android:backgroundTint="@color/black"
+                            style="@style/OutlinedBoxDark"
                             android:drawableLeft="@drawable/ic_arrival"
                             android:hint="To"
                             android:text="Select Arrival" />
@@ -113,13 +113,15 @@
                             android:layout_height="56dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/black"
                             android:clickable="true"
+                            style="@style/OutlinedBoxDark"
                             android:drawableLeft="@drawable/ic_calendar"
                             android:focusable="false"
-                            android:hint="Departure Date"
+                            android:backgroundTint="@color/black"
                             android:inputType="none"
-                            android:text="Select Date" />
+                            android:hint="Departure Date"
+                            android:text="Select Date"
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -140,6 +142,7 @@
                             android:clickable="true"
                             android:drawableLeft="@drawable/ic_calendar"
                             android:focusable="false"
+                            style="@style/OutlinedBoxDark"
                             android:hint="Return Date"
                             android:inputType="none"
                             android:text="Select Date" />
@@ -165,7 +168,8 @@
                                 android:id="@+id/et_passengers"
                                 android:layout_width="match_parent"
                                 android:layout_height="61dp"
-                                android:backgroundTint="@color/black"
+                                android:text="Passengers"
+                                style="@style/OutlinedBoxDark"
                                 android:drawableLeft="@drawable/ic_pasajeros"
 
                              />
@@ -187,7 +191,8 @@
                                 android:id="@+id/et_class"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:backgroundTint="@color/black"
+                                style="@style/OutlinedBoxDark"
+                                android:text="Class"
                                 android:drawableLeft="@drawable/ic_clases"
                                />
                         </com.google.android.material.textfield.TextInputLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
-    android:background="@color/gris_claro"
+    style="@style/subGeneral"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Explore">
@@ -28,7 +28,7 @@
         android:text="@string/btn_flight_explore"
         android:textAllCaps="false"
         android:background="@android:color/transparent"
-        android:textColor="@color/black"
+        style="@style/subGeneral"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +41,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="@string/trending"
-        android:textColor="@color/black"
+        style="@style/subGeneral"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rec_btn_flight_explore" />
+
+    <TextView
+        android:id="@+id/text_see_all_flights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/see_all_flight_explore"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rec_btn_flight_explore" />
 
@@ -64,7 +76,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/offers_day"
-        android:textColor="@color/black"
+        style="@style/subGeneral"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

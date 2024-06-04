@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import com.edu.ort.tp3_belgrano_a_grupo4.R
 
 
-class PantallaEnDesarrollo : Fragment() {
+class ScreenDevelopment : Fragment() {
     private lateinit var viewDesarrollo: View
     private lateinit var backButton: ImageView
 
@@ -21,7 +21,7 @@ class PantallaEnDesarrollo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewDesarrollo = inflater.inflate(R.layout.fragment_pantalla_en_desarrollo, container, false)
+        viewDesarrollo = inflater.inflate(R.layout.fragment_screen_development, container, false)
 
         initViews()
 
@@ -42,7 +42,7 @@ class PantallaEnDesarrollo : Fragment() {
     }
 
     private fun navigateToHome() {
-        val action1 = PantallaEnDesarrolloDirections.actionPantallaEnDesarrolloToExplore()
+        val action1 = ScreenDevelopmentDirections.actionPantallaEnDesarrolloToExplore()
         viewDesarrollo.findNavController().navigate(action1)
     }
 
