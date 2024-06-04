@@ -11,14 +11,13 @@
     <ImageView
         android:id="@+id/imagen_portada"
         android:layout_width="match_parent"
-        android:layout_height="231dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="420dp"
         android:src="@drawable/portada_profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btn_back_fragment_perfil"

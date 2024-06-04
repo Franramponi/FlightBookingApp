@@ -24,7 +24,7 @@
     </style>
 
     <style name="titleView" parent="titleViewEdit">
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="header_title" parent="titleViewEdit">
@@ -43,8 +43,8 @@
 
     <style name="txtSub" parent="txtSubEdit">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:layout_marginLeft">5sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginLeft">8sp</item>
 
     </style>
 
