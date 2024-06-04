@@ -10,6 +10,10 @@
         <item name="android:background">@color/black</item>
     </style>
 
+    <style name="subGeneral" parent="general">
+    </style>
+
+
     <style name="titleViewEdit">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">24sp</item>
@@ -24,6 +28,16 @@
         <item name="android:textColor">@color/grey</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="fligSubEdit" parent="txtSubEdit">
+        <item name="android:textColor">@color/gris_claro</item>
+
+    </style>
+
+
+    <style name="title_treding" parent="titleViewEdit">
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="txtDesProfile" parent="txtSubEdit">
@@ -95,4 +109,18 @@
         <item name="android:background">@drawable/round_backgroud</item>
         <item name="android:src">@drawable/back</item>
     </style>
+
+
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="materialThemeOverlay">@style/OutlinedBoxDark</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+    </style>
+
+    <style name="OutlinedBoxDark">
+        <item name="colorControlNormal">@color/gris_oscuro</item>
+        <item name="colorControlActivated">@color/gris_oscuro</item>
+        <item name="android:textColor">@color/gris_oscuro</item>
+        <item name="android:textColorHint">@color/gris_oscuro</item>
+    </style>
+
 </resources>

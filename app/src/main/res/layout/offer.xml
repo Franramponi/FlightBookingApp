@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/general"
+    android:layout_marginRight="16dp"
+    android:id="@+id/card_offer">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/cardImg"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="match_parent"
+                style="@style/title_treding"
+                android:layout_height="36dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/txtSubEdit"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:gravity="bottom"
+                android:text="@string/special_offers" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

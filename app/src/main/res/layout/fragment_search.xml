@@ -5,7 +5,7 @@
     android:id="@+id/fragment_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/general"
+    style="@style/subGeneral"
     tools:context=".fragments.Search">
 
     <ScrollView
@@ -15,178 +15,203 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-       <!-- <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:padding="15dp"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:id="@+id/btn_back_toolbar_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="28dp"
-                android:src="@drawable/back"
-                app:tint="@color/black" />
-
-            <TextView
-                android:id="@+id/title_toolbar_search"
-                style="@style/titleViewEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="30dp"
-                android:text="Search Flight" />
-
-            <ImageView
-                android:id="@+id/three_point_toolbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginLeft="35dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/puntos"
-                app:tint="@color/black" />
-        </LinearLayout>-->
-
         <LinearLayout
-            android:layout_width="346dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="0dp"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/background_btn_searchs"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <Button
-                    android:id="@+id/btnOneWay"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="One way"
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/btnRoundTrip"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Round trip" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="346dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/background_form_search"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/et_departure"
+                <LinearLayout
                     android:layout_width="320dp"
-                    android:layout_height="56dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/background_input_form_search_"
-                    android:drawableLeft="@drawable/ic_departure"
-                    android:hint="Select Departure" />
+                    android:background="@drawable/background_btn_searchs"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
-                <EditText
-                    android:id="@+id/et_arrival"
-                    android:layout_width="320dp"
-                    android:layout_height="56dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/background_input_form_search_"
-                    android:drawableLeft="@drawable/ic_arrival"
-                    android:hint="Select Arrival" />
+                    <Button
+                        android:id="@+id/btnOneWay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="One way"
+                        android:textAlignment="center" />
 
-                <EditText
-                    android:id="@+id/et_departure_date"
-                    android:layout_width="320dp"
-                    android:layout_height="56dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/background_input_form_search_"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/ic_calendar"
-                    android:focusable="false"
-                    android:hint="Select Date"
-                    android:inputType="none" />
-
-                <EditText
-                    android:id="@+id/et_arrival_date"
-                    android:layout_width="320dp"
-                    android:layout_height="56dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/background_input_form_search_"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/ic_calendar"
-                    android:focusable="false"
-                    android:hint="Seleccionar fecha de vuelta"
-                    android:inputType="none"
-                    android:visibility="gone" />
+                    <Button
+                        android:id="@+id/btnRoundTrip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Round trip" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <Spinner
-                        android:id="@+id/pasajeros"
-                        android:layout_width="150dp"
-                        android:layout_height="56dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="24dp"
-                        android:background="@color/white"
-                        android:ems="10"
-                        android:inputType="text" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutDeparture"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
 
-                    <Spinner
-                        android:id="@+id/clases"
-                        android:layout_width="150dp"
-                        android:layout_height="56dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="24dp"
-                        android:background="@color/white" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_departure"
+                            android:layout_width="320dp"
+                            android:layout_height="56dp"
+                            style="@style/OutlinedBoxDark"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:drawableLeft="@drawable/ic_departure"
+                            android:hint="From"
+                            android:text="Select Departure" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutArrival"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_arrival"
+                            android:layout_width="320dp"
+                            android:layout_height="56dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="30dp"
+                            style="@style/OutlinedBoxDark"
+                            android:drawableLeft="@drawable/ic_arrival"
+                            android:hint="To"
+                            android:text="Select Arrival" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutDepartureDate"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_departure_date"
+                            android:layout_width="320dp"
+                            android:layout_height="56dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:clickable="true"
+                            style="@style/OutlinedBoxDark"
+                            android:drawableLeft="@drawable/ic_calendar"
+                            android:focusable="false"
+                            android:backgroundTint="@color/black"
+                            android:inputType="none"
+                            android:hint="Departure Date"
+                            android:text="Select Date"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutArrivalDate"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_arrival_date"
+                            android:layout_width="320dp"
+                            android:layout_height="56dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="@color/black"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_calendar"
+                            android:focusable="false"
+                            style="@style/OutlinedBoxDark"
+                            android:hint="Return Date"
+                            android:inputType="none"
+                            android:text="Select Date" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutPassengers"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:hint="Passengers"
+                            android:layout_marginRight="5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_passengers"
+                                android:layout_width="match_parent"
+                                android:layout_height="61dp"
+                                android:text="Passengers"
+                                style="@style/OutlinedBoxDark"
+                                android:drawableLeft="@drawable/ic_pasajeros"
+
+                             />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayoutClass"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="15dp"
+                            android:hint="Class"
+                            >
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_class"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/OutlinedBoxDark"
+                                android:text="Class"
+                                android:drawableLeft="@drawable/ic_clases"
+                               />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSearch"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:backgroundTint="#F99A0E"
+                        android:text="Search"
+                        android:textColor="@color/white"
+                        app:cornerRadius="5dp" />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnSearch"
-                    android:layout_width="300dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:backgroundTint="#F99A0E"
-                    android:text="Search"
-                    android:textColor="@color/white"
-                    app:cornerRadius="5dp" />
             </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

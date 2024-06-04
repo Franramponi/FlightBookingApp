@@ -9,4 +9,8 @@
     <color name="light_white">#F8F9FB</color>
     <color name="colorActionBarBackgroundLight">#FFFFFF</color>
     <color name="gris_claro">#F3F5F9</color>
+    <color name="orange">#F99A0E</color>
+    <color name="gris_oscuro">#4D5760</color>
+
+
 </resources>
