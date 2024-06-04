@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     private val sinActionBar = setOf(
         R.id.profile,
         R.id.pantallaEnDesarrollo,
-        R.id.splashActivity
     )
     private val fragmentsWithoutBottomNav = setOf(
         R.id.pantallaEnDesarrollo,

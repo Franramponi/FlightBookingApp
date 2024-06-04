@@ -63,7 +63,11 @@ class Explore : Fragment() {
         val layoutManagerTrending = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         val layoutManagerOffer = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        val offerAdapter = OfferAdapter(offers)
+        val offerAdapter = OfferAdapter(offers){ offer ->
+            val action = ExploreDirections.actionExploreToOffers()
+            findNavController().navigate(action)
+        }
+
         val trendingAdapter = TrendingAdapter(trendings)
         val weeklyFlightAdapter = WeeklyFlightAdapter(weeklyflights)
 
@@ -84,6 +88,7 @@ class Explore : Fragment() {
         trendings.add(TrendingDestination("Philippines", "Boracay", "5D4N", R.drawable.img_trending))
         trendings.add(TrendingDestination("Maldives", "Baros", "7D6N", R.drawable.img_trending2))
         trendings.add(TrendingDestination("Indonesia", "Bali", "3D2N", R.drawable.img_trending3))
+        trendings.add(TrendingDestination("Philippines", "Palawan", "3D2N", R.drawable.img_trending4))
 
         weeklyflights.add(WeeklyFlight("Paris", 1299))
     }
