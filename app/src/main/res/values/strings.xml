@@ -34,6 +34,11 @@
     /Custom Offers/
     <string name="txt_title_offers_action_bar">Offers</string>
 
+    /Custom Search Result/
+    <string name="txt_title_one_search_result_action_bar">EZE</string>
+    <string name="txt_title_two_search_result_action_bar">LAX</string>
+    <string name="txt_sub_title_search_result_action_bar">29 July, 2022</string>
+
     /Config Modo Oscuro/
     <string name="txt_config_setting">Generales</string>
     <string name="txt_mode_dark_setting">Modo Oscuro</string>
@@ -55,7 +60,24 @@
         <item>Primera clase</item>
     </string-array>
 
+    /Explore/
+    <string name="trending">Trending Destinations</string>
+    <string name="offers_day">Offers</string>
+    <string name="btn_flight_explore">Flight</string>
+    <string name="see_all_flight_explore">See all</string>
 
+    /cardView Weekly/
+    <string name="weekly_from">FROM</string>
+    <string name="weekly_price">price</string>
+    <string name="weekly_pais">Pais</string>
+
+    /cardView trending/
+    <string name="flight_id">Flight ID</string>
+    <string name="country">Country</string>
+    <string name="airport_name">Airport Name</string>
+
+    /cardView offer/
+    <string name="special_offers">Limited time offer!</string>
     <string name="item_name">Name</string>
     <string name="item_position">Position</string>
 

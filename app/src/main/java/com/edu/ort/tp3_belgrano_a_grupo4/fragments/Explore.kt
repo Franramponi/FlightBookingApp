@@ -5,56 +5,86 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.edu.ort.tp3_belgrano_a_grupo4.R
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.OfferAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.TrendingAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.WeeklyFlightAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.Offer
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.TrendingDestination
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.WeeklyFlight
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Explore.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Explore : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var view1: View
+    private lateinit var recWeekly: RecyclerView
+    private lateinit var recTrending: RecyclerView
+    private lateinit var recOffer: RecyclerView
+    private lateinit var exploreButton: Button
+
+    private var offers: MutableList<Offer> = ArrayList()
+    private var trendings: MutableList<TrendingDestination> = ArrayList()
+    private var weeklyflights: MutableList<WeeklyFlight> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        loadList()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+        view1 = inflater.inflate(R.layout.fragment_explore, container, false)
+        recWeekly = view1.findViewById(R.id.rec_weekly_flifht_list)
+        recTrending = view1.findViewById(R.id.rec_tranding_dest_list)
+        recOffer = view1.findViewById(R.id.rec_offers_list_explore)
+        exploreButton = view1.findViewById(R.id.rec_btn_flight_explore)
+
+
+        exploreButton.setOnClickListener {
+            findNavController().navigate(R.id.fragment_search)
+        }
+        return view1
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BlankFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Explore().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onStart() {
+        super.onStart()
+
+
+        recWeekly.setHasFixedSize(true)
+        recTrending.setHasFixedSize(true)
+        recOffer.setHasFixedSize(true)
+
+        val layoutManagerWeekly = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val layoutManagerTrending = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val layoutManagerOffer = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        val offerAdapter = OfferAdapter(offers)
+        val trendingAdapter = TrendingAdapter(trendings)
+        val weeklyFlightAdapter = WeeklyFlightAdapter(weeklyflights)
+
+        recWeekly.layoutManager = layoutManagerWeekly
+        recTrending.layoutManager = layoutManagerTrending
+        recOffer.layoutManager = layoutManagerOffer
+
+        recWeekly.adapter = weeklyFlightAdapter
+        recTrending.adapter = trendingAdapter
+        recOffer.adapter = offerAdapter
+    }
+
+
+    private fun loadList() {
+        offers.add(Offer("Mastercard", R.drawable.card_mastercard, 20))
+        offers.add(Offer("Visa", R.drawable.card_visa, 25))
+
+        trendings.add(TrendingDestination("Philippines", "Boracay", "5D4N", R.drawable.img_trending))
+        trendings.add(TrendingDestination("Maldives", "Baros", "7D6N", R.drawable.img_trending2))
+        trendings.add(TrendingDestination("Indonesia", "Bali", "3D2N", R.drawable.img_trending3))
+
+        weeklyflights.add(WeeklyFlight("Paris", 1299))
     }
 }

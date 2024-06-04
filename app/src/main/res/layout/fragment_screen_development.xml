@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     style="@style/general"
     android:padding="16dp"
-    tools:context=".fragments.PantallaEnDesarrollo"
+    tools:context=".fragments.ScreenDevelopment"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="279dp">
 
     <ImageView
         android:id="@+id/img_screen_dev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:scaleType="centerInside"
+        style="@style/imageStyle"
         android:src="@drawable/image_screen_development"
         app:layout_constraintBottom_toTopOf="@id/title_screen_dev"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,13 +47,7 @@
 
     <ImageView
         android:id="@+id/btn_back_screen_dev"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="10dp"
-        android:background="@drawable/round_backgroud"
-        android:src="@drawable/back"
+        style="@style/backButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
