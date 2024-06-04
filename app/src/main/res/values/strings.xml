@@ -82,4 +82,13 @@
     <string name="item_position">Position</string>
 
 
+    /Offers/
+    <string name="txt_visa_credit">your VISA credit or</string>
+    <string name="txt_25_descuento">25% discount</string>
+    <string name="txt_debit_cards">debit cards</string>
+    <string name="txt_credit_cards">credit cards</string>
+    <string name="txt_20_descuento">Get 20% discount</string>
+    <string name="txt_master">with your Master</string>
+
+
 </resources>

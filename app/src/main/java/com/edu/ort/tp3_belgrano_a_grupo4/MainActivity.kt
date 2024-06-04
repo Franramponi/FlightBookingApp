@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
     //Lista de fragmentos se ocultar la bottom bar y action bar
     private val sinActionBar = setOf(
         R.id.profile,
-        R.id.pantallaEnDesarrollo
-
+        R.id.pantallaEnDesarrollo,
+        R.id.splashActivity
     )
     private val fragmentsWithoutBottomNav = setOf(
         R.id.pantallaEnDesarrollo,

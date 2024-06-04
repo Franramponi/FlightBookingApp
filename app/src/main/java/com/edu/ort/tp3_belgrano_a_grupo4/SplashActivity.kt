@@ -13,16 +13,16 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
+        if (supportActionBar != null) {
+            supportActionBar?.hide()
 
+        }
 
         Handler().postDelayed({
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
-
-
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
