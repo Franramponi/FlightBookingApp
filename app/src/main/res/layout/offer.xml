@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    style="@style/general"
     android:layout_marginRight="16dp"
     android:id="@+id/card_offer">
 
@@ -30,19 +30,17 @@
             <TextView
                 android:id="@+id/txt_name"
                 android:layout_width="match_parent"
+                style="@style/title_treding"
                 android:layout_height="36dp"
-                android:textStyle="bold"
-                android:textAppearance="@color/black"
-                android:textSize="15dp"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/txt_description"
+                style="@style/txtSubEdit"
                 android:layout_width="match_parent"
                 android:layout_height="26dp"
                 android:gravity="bottom"
-                android:text="@string/special_offers"
-                android:textSize="15dp" />
+                android:text="@string/special_offers" />
 
         </LinearLayout>
 

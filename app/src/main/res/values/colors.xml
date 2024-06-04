@@ -2,12 +2,20 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#7E8B97</color>
     <color name="blue">#10579B</color>
+    <color name="bluelight">#3AA4C8</color>
+    <color name="greenlight">#32D4AD</color>
     <color name="light_blue">#3AA4C8</color>
-    <color name="yellow">#F99A0E</color>
-    <color name="light_white">#F8F9FB</color>
+    <color name="grey">#808080</color>
+    <color name="yellow">#FFFF00</color>
     <color name="colorActionBarBackgroundLight">#FFFFFF</color>
     <color name="gris_claro">#F3F5F9</color>
     <color name="orange">#F99A0E</color>
-</resources>
+    <color name="gris_oscuro">#4D5760</color>
+    </resources>
+
+
+
+
+
+

@@ -11,7 +11,8 @@ import com.edu.ort.tp3_belgrano_a_grupo4.holders.OfferHolder
 
 
 class OfferAdapter(
-    private val offers: MutableList<Offer>
+    private val offers: MutableList<Offer>,
+    private val clickListener: (Offer) -> Unit
 ) : RecyclerView.Adapter<OfferHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferHolder {
@@ -25,5 +26,11 @@ class OfferAdapter(
         val offer = offers[position]
         holder.setNombreTarjeta(offer.nombreTarjeta)
         holder.setCardImg(offer.cardImg)
+
+        holder.getCardLayout().setOnClickListener {
+            clickListener(offer)
+        }
     }
+
+
 }
