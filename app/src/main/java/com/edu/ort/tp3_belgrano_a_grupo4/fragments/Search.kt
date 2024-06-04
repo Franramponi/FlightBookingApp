@@ -11,8 +11,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.edu.ort.tp3_belgrano_a_grupo4.R
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.OfferAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.TrendingAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.adapters.WeeklyFlightAdapter
 import com.edu.ort.tp3_belgrano_a_grupo4.adapters.com.edu.ort.tp3_belgrano_a_grupo4.adapters.CustomSpinnerAdapter
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.Offer
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.TrendingDestination
+import com.edu.ort.tp3_belgrano_a_grupo4.entities.WeeklyFlight
 import com.google.android.material.textfield.TextInputLayout
 
 
@@ -26,7 +34,9 @@ class Search : Fragment() {
     private lateinit var editTextArrivalDate: EditText
     private lateinit var textInputLayoutArrivalDate: TextInputLayout
     private lateinit var btnSearch: Button
+    private lateinit var recOffer: RecyclerView
 
+    private var offers: MutableList<Offer> = ArrayList()
     companion object {
         val BTN_ONE_DAY_ID = R.id.btnOneWay
         val BTN_ROUND_TRIP_ID = R.id.btnRoundTrip
@@ -36,6 +46,7 @@ class Search : Fragment() {
         val INPUT_ARRIVAL_DATE_ID = R.id.et_arrival_date
         val TEXT_INPUT_LAYOUT_ARRIVAL_DATE_ID = R.id.textInputLayoutArrivalDate
         val BTN_SEARCH_ID = R.id.btnSearch
+        val REC_OFFER_ID = R.id.rec_offers
 
     }
 
@@ -56,11 +67,21 @@ class Search : Fragment() {
         initListeners()
         btnOneWay.isSelected = true
         updateButtonAppearance()
-
+        loadList()
 
         return viewSearch
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        recOffer.setHasFixedSize(true)
+        val layoutManagerOffer = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val offerAdapter = OfferAdapter(offers)
+        recOffer.layoutManager = layoutManagerOffer
+        recOffer.adapter = offerAdapter
+
+    }
     private fun initViews() {
         btnOneWay = viewSearch.findViewById(BTN_ONE_DAY_ID)
         btnRoundTrip = viewSearch.findViewById(BTN_ROUND_TRIP_ID)
@@ -70,6 +91,7 @@ class Search : Fragment() {
         btnSearch = viewSearch.findViewById(BTN_SEARCH_ID)
         editTextDeparture = viewSearch.findViewById(INPUT_DEPARTURE_ID)
         editTextArrival = viewSearch.findViewById(INPUT_ARRIVAL_ID)
+        recOffer = viewSearch.findViewById(REC_OFFER_ID)
         // Initially hide the arrival date field
         textInputLayoutArrivalDate.visibility = View.GONE
     }
@@ -145,6 +167,11 @@ class Search : Fragment() {
                 }
             }
         }
+    }
+
+    private fun loadList() {
+        offers.add(Offer("Mastercard", R.drawable.card_mastercard, 20))
+        offers.add(Offer("Visa", R.drawable.card_visa, 25))
     }
 
 }

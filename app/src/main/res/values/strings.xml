@@ -91,4 +91,7 @@
     <string name="txt_master">with your Master</string>
 
 
+    <string name="business_class">test\n</string>
+    <string name="los_angeles">LA\n</string>
+    <string name="ezeiza_airport">Ezeiza\n</string>
 </resources>
