@@ -44,22 +44,6 @@
     <string name="txt_mode_dark_setting">Modo Oscuro</string>
 
 
-    <string-array name="spinner_pasajeros">
-        <item>Seleccionar Pasajeros</item>
-        <item>1 pasajero</item>
-        <item>2 pasajeros</item>
-        <item>3 pasajeros</item>
-        <item>4 pasajeros</item>
-    </string-array>
-
-    <string-array name="spinner_clase">
-        <item>Seleccionar clase</item>
-        <item>Economica</item>
-        <item>Económica premium</item>
-        <item>Ejecutiva</item>
-        <item>Primera clase</item>
-    </string-array>
-
     /Explore/
     <string name="trending">Trending Destinations</string>
     <string name="offers_day">Offers</string>
@@ -91,7 +75,17 @@
     <string name="txt_master">with your Master</string>
 
 
+    /Search/
+    <string name="txt_departure">Select Departure</string>
+    <string name="txt_arrival">Select Arrival</string>
+    <string name="txt_date">"Select Date"</string>
+    <string name="txt_passanger">Passanger</string>
+    <string name="txt_class">Class</string>
+
     <string name="business_class">test\n</string>
     <string name="los_angeles">LA\n</string>
     <string name="ezeiza_airport">Ezeiza\n</string>
+
+
+
 </resources>

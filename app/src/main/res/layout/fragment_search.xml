@@ -190,13 +190,12 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/et_class"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="61dp"
                                 style="@style/OutlinedBoxDark"
                                 android:text="Class"
                                 android:drawableLeft="@drawable/ic_clases"
-                               />
                                 android:backgroundTint="@color/black"
-                                android:drawableLeft="@drawable/ic_clases" />
+                                />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
