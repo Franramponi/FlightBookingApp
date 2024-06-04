@@ -18,6 +18,7 @@ navigation = "5.3.1"
 preferenceKtx = "1.2.1"
 media3Common = "1.3.1"
 recyclerview = "1.4.0-alpha01"
+gson = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,6 +35,7 @@ navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "na
 navigation = { group = "com.google.android.libraries.navigation", name = "navigation", version.ref = "navigation" }
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
