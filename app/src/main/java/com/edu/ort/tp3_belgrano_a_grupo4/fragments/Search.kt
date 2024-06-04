@@ -33,6 +33,8 @@ class Search : Fragment() {
     private lateinit var editTextArrival: EditText
     private lateinit var editTextArrivalDate: EditText
     private lateinit var textInputLayoutArrivalDate: TextInputLayout
+    private lateinit var editTextClass: EditText
+    private lateinit var editTextPassanger: EditText
     private lateinit var btnSearch: Button
     private lateinit var recOffer: RecyclerView
 
@@ -45,6 +47,8 @@ class Search : Fragment() {
         val INPUT_ARRIVAL_ID = R.id.et_arrival
         val INPUT_ARRIVAL_DATE_ID = R.id.et_arrival_date
         val TEXT_INPUT_LAYOUT_ARRIVAL_DATE_ID = R.id.textInputLayoutArrivalDate
+        val TEXT_INPUT_CLASS_ID = R.id.et_class
+        val TEXT_INPUT_PASSANGER_ID = R.id.et_passengers
         val BTN_SEARCH_ID = R.id.btnSearch
         val REC_OFFER_ID = R.id.rec_offers
 
@@ -77,7 +81,10 @@ class Search : Fragment() {
 
         recOffer.setHasFixedSize(true)
         val layoutManagerOffer = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val offerAdapter = OfferAdapter(offers)
+        val offerAdapter = OfferAdapter(offers){ offer ->
+            val action = SearchDirections.actionFragmentSearchToOffers()
+            findNavController().navigate(action)
+        }
         recOffer.layoutManager = layoutManagerOffer
         recOffer.adapter = offerAdapter
 
@@ -92,7 +99,9 @@ class Search : Fragment() {
         editTextDeparture = viewSearch.findViewById(INPUT_DEPARTURE_ID)
         editTextArrival = viewSearch.findViewById(INPUT_ARRIVAL_ID)
         recOffer = viewSearch.findViewById(REC_OFFER_ID)
-        // Initially hide the arrival date field
+        editTextPassanger =  viewSearch.findViewById(TEXT_INPUT_PASSANGER_ID)
+        editTextClass =  viewSearch.findViewById(TEXT_INPUT_CLASS_ID)
+
         textInputLayoutArrivalDate.visibility = View.GONE
     }
 
@@ -112,10 +121,15 @@ class Search : Fragment() {
         editTextDepartureDate.setOnClickListener { showDatePicker(editTextDepartureDate) }
         editTextArrivalDate.setOnClickListener { showDatePicker(editTextArrivalDate) }
         btnSearch.setOnClickListener { navigateToResults() }
-        setupEditTextBehavior(editTextDeparture, "Select Departure")
-        setupEditTextBehavior(editTextArrival, "Select Arrival")
-        setupEditTextBehavior(editTextDepartureDate, "Select Date")
-        setupEditTextBehavior(editTextArrivalDate, "Select Date")
+
+
+        setupEditTextBehavior(editTextDeparture, getString(R.string.txt_departure))
+        setupEditTextBehavior(editTextArrival, getString(R.string.txt_arrival))
+        setupEditTextBehavior(editTextDepartureDate, getString(R.string.txt_date))
+        setupEditTextBehavior(editTextArrivalDate, getString(R.string.txt_date))
+        setupEditTextBehavior(editTextPassanger, getString(R.string.txt_passanger))
+        setupEditTextBehavior(editTextClass, getString(R.string.txt_class))
+
     }
     private fun updateButtonAppearance() {
         // Método para actualizar la apariencia de los botones según su estado de selección
