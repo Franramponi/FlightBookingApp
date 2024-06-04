@@ -4,5 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#10579B</color>
     <color name="bluelight">#3AA4C8</color>
-
-</resources>
+    <color name="greenlight">#32D4AD</color>
+    <color name="light_blue">#3AA4C8</color>
+    <color name="grey">#808080</color>
+    <color name="gris_claro">#808080</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="colorActionBarBackgroundLight">#FFFFFF</color>
+    </resources>
