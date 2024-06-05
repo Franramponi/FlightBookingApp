@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.TP3_Belgrano_A_Grupo4" parent="Theme.MaterialComponents.DayNight">
+
         <item name="colorPrimary">@color/blue</item>
         <item name="colorSecondary">@color/light_blue</item>
     </style>
@@ -40,11 +41,14 @@
         <item name="android:layout_marginLeft">8sp</item>
     </style>
 
-    <style name="fligSubEdit" parent="txtSubEdit">
-        <item name="android:textColor">@color/gris_claro</item>
 
+    <style name="txtSubEdit3" parent="txtSubEdit">
+        <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="fligSubEdit" parent="txtSubEdit">
+        <item name="android:textColor">@color/gris_claro</item>
+    </style>
 
     <style name="title_treding" parent="titleViewEdit">
         <item name="android:textSize">15sp</item>
@@ -133,4 +137,12 @@
         <item name="android:textColorHint">@color/gris_oscuro</item>
     </style>
 
+    <style name="fondoBoton" >
+        <item name="android:backgroundTint">@color/orange</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="fondoLogo" >
+        <item name="android:background">@color/gris_claro</item>
+    </style>
 </resources>
