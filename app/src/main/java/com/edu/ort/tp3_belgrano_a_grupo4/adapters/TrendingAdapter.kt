@@ -9,7 +9,7 @@ import com.edu.ort.tp3_belgrano_a_grupo4.entities.WeeklyFlight
 import com.edu.ort.tp3_belgrano_a_grupo4.holders.TrendingHolder
 import com.edu.ort.tp3_belgrano_a_grupo4.holders.WeeklyFlightHolder
 
-class TrendingAdapter(private val trendings: MutableList<TrendingDestination>) : RecyclerView.Adapter<TrendingHolder>() {
+class TrendingAdapter(private val trendings: MutableList<TrendingDestination>,private val specificCardClickListener: (TrendingDestination) -> Unit) : RecyclerView.Adapter<TrendingHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.trending_destination, parent, false)
@@ -22,6 +22,14 @@ class TrendingAdapter(private val trendings: MutableList<TrendingDestination>) :
         holder.setCountry(trendingDestination.country)
         holder.setFlightId(trendingDestination.flightId)
         holder.setImgTrending(trendingDestination.imgResource)
+        if (trendingDestination.airport == "Boracay") {
+            holder.itemView.setOnClickListener {
+                specificCardClickListener(trendingDestination)
+            }
+        } else {
+            // Remove el listener en otras cards
+            holder.itemView.setOnClickListener(null)
+        }
     }
 
     override fun getItemCount(): Int {
