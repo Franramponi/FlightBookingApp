@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TP3_Belgrano_A_Grupo4" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Theme.TP3_Belgrano_A_Grupo4" parent="Theme.MaterialComponents.DayNight">
         <item name="colorPrimary">@color/blue</item>
         <item name="colorSecondary">@color/light_blue</item>
     </style>
@@ -10,10 +10,18 @@
         <item name="android:background">@color/black</item>
     </style>
 
+    <style name="subGeneral" parent="general">
+    </style>
+
+
     <style name="titleViewEdit">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleView" parent="titleViewEdit">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="header_title" parent="titleViewEdit">
@@ -24,6 +32,22 @@
         <item name="android:textColor">@color/grey</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="txtSub" parent="txtSubEdit">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginLeft">8sp</item>
+    </style>
+
+    <style name="fligSubEdit" parent="txtSubEdit">
+        <item name="android:textColor">@color/gris_claro</item>
+
+    </style>
+
+
+    <style name="title_treding" parent="titleViewEdit">
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="txtDesProfile" parent="txtSubEdit">
@@ -79,5 +103,34 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="imageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">200dp</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="backButtonStyle">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/round_backgroud</item>
+        <item name="android:src">@drawable/back</item>
+    </style>
+
+
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="materialThemeOverlay">@style/OutlinedBoxDark</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+    </style>
+
+    <style name="OutlinedBoxDark">
+        <item name="colorControlNormal">@color/gris_oscuro</item>
+        <item name="colorControlActivated">@color/gris_oscuro</item>
+        <item name="android:textColor">@color/gris_oscuro</item>
+        <item name="android:textColorHint">@color/gris_oscuro</item>
+    </style>
 
 </resources>
