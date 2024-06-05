@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_explore_to_offers"
             app:destination="@id/offers" />
+        <action
+            android:id="@+id/action_explore_to_boracay"
+            app:destination="@id/boracay" />
     </fragment>
     <fragment
         android:id="@+id/fragment_search"
@@ -65,4 +68,13 @@
         android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.SearchResult"
         android:label="fragment_search_result"
         tools:layout="@layout/fragment_search_result" />
+    <fragment
+        android:id="@+id/boracay"
+        android:name="com.edu.ort.tp3_belgrano_a_grupo4.fragments.Boracay"
+        android:label="fragment_boracay"
+        tools:layout="@layout/fragment_boracay" >
+        <action
+            android:id="@+id/action_boracay_to_explore"
+            app:destination="@id/explore" />
+    </fragment>
 </navigation>
