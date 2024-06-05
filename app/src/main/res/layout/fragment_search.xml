@@ -15,6 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -158,11 +159,11 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="10dp"
-                            android:hint="Passengers"
-                            android:layout_marginRight="5dp">
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:hint="Passengers">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/et_passengers"
@@ -172,7 +173,7 @@
                                 style="@style/OutlinedBoxDark"
                                 android:drawableLeft="@drawable/ic_pasajeros"
 
-                             />
+                                />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -180,21 +181,21 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginRight="15dp"
-                            android:hint="Class"
-                            >
+                            android:layout_weight="1"
+                            android:hint="Class">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/et_class"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="61dp"
                                 style="@style/OutlinedBoxDark"
                                 android:text="Class"
                                 android:drawableLeft="@drawable/ic_clases"
-                               />
+                                android:backgroundTint="@color/black"
+                                />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
@@ -212,6 +213,33 @@
                         app:cornerRadius="5dp" />
                 </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_offer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/offers_day"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rec_tranding_dest_list" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_offers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

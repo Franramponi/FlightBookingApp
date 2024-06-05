@@ -34,10 +34,12 @@ class MainActivity : AppCompatActivity() {
     private val sinActionBar = setOf(
         R.id.profile,
         R.id.pantallaEnDesarrollo,
+        R.id.boracay,
     )
     private val fragmentsWithoutBottomNav = setOf(
         R.id.pantallaEnDesarrollo,
-        R.id.search_result
+        R.id.search_result,
+        R.id.boracay,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

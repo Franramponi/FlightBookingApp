@@ -68,7 +68,10 @@ class Explore : Fragment() {
             findNavController().navigate(action)
         }
 
-        val trendingAdapter = TrendingAdapter(trendings)
+        val trendingAdapter = TrendingAdapter(trendings){ _ ->
+            val action = ExploreDirections.actionExploreToBoracay()
+            findNavController().navigate(action)
+        }
         val weeklyFlightAdapter = WeeklyFlightAdapter(weeklyflights)
 
         recWeekly.layoutManager = layoutManagerWeekly
