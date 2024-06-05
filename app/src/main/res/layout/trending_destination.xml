@@ -45,7 +45,6 @@
             android:id="@+id/txt_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/gris_claro"
             android:layout_below="@id/txt_airport"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"

@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_search"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="16dp">
@@ -173,6 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:drawableLeft="@drawable/chair"
                     android:text="Business Class" />
 
@@ -185,19 +187,25 @@
                         android:id="@+id/fromPriceText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
                         android:paddingRight="4sp"
                         android:text="From"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/id_price"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.516" />
 
                     <TextView
                         android:id="@+id/id_price"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="68dp"
+                        android:layout_height="25dp"
                         android:layout_margin="12dp"
-                        android:gravity="end"
+                        android:layout_marginEnd="24dp"
+                        android:gravity="left"
                         android:text="$1128"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
