@@ -78,8 +78,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:weightSum="3"
-            android:paddingTop="8dp">
+            android:paddingTop="8dp"
+            android:weightSum="3">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -150,63 +150,56 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:weightSum="2"
-            android:paddingTop="8dp">
+            android:paddingTop="8dp"
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#F8F9FB"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/name_class"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textStyle="bold"
                     android:drawableLeft="@drawable/chair"
                     android:drawablePadding="8dp"
                     android:text="Business Class"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="end">
+                    android:gravity="end"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/fromPriceText"
-                        android:layout_width="49dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:paddingRight="4sp"
-                        android:text="From"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/id_price"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.516" />
+                        android:gravity="end"
+                        android:text="@string/from"
+                        android:textAlignment="viewEnd" />
 
                     <TextView
                         android:id="@+id/id_price"
-                        android:layout_width="68dp"
-                        android:layout_height="25dp"
-                        android:layout_margin="12dp"
-                        android:layout_marginEnd="24dp"
-                        android:gravity="left"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center"
                         android:text="$1128"
                         android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </LinearLayout>
+
             <Button
                 android:id="@+id/btn_viewDetails"
                 android:layout_width="match_parent"
