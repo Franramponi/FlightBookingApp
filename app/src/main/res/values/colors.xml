@@ -9,8 +9,10 @@
     <color name="grey">#808080</color>
     <color name="yellow">#FFFF00</color>
     <color name="colorActionBarBackgroundLight">#FFFFFF</color>
-    <color name="gris_claro">#F3F5F9</color>
     <color name="orange">#F99A0E</color>
+    <color name="gris_claro">#F3F5F9</color>
+    <color name="gris_claro2">#F4F5F6</color>
+    <color name="gris_claro3">#7E8B97</color>
     <color name="gris_oscuro">#4D5760</color>
     </resources>
 

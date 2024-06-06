@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
+    style="@style/general"
     android:layout_margin="8dp">
 
     <LinearLayout
@@ -34,6 +35,7 @@
                     android:layout_height="32dp"
                     android:contentDescription="Logo de la aerolínea"
                     android:scaleType="centerCrop"
+                    style="@style/fondoLogo"
                     android:src="@drawable/ic_airline_logo" />
 
                 <TextView
@@ -92,18 +94,15 @@
                     android:id="@+id/id_Origin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_regular"
                     android:text="EZE"
-                    android:textColor="#1262AE"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    style="@style/styleCardResult" />
 
                 <TextView
                     android:id="@+id/txt_Origin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ezeiza Ar"
-                    android:textColor="#191919" />
+                    style="@style/txtSubEdit3" />
 
             </LinearLayout>
 
@@ -128,11 +127,8 @@
                     android:id="@+id/id_Destination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_regular"
                     android:text="LAX"
-                    android:textColor="#1262AE"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    style="@style/styleCardResult" />
 
                 <TextView
                     android:id="@+id/txt_Destination"
@@ -140,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="Los Angeles"
-                    android:textColor="#191919" />
+                    style="@style/txtSubEdit3" />
 
             </LinearLayout>
         </LinearLayout>
@@ -205,8 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:backgroundTint="@color/orange"
-                android:text="View Details" />
+                style="@style/fondoBoton"
+                android:text="@string/view_details" />
         </LinearLayout>
 
     </LinearLayout>

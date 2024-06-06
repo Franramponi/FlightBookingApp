@@ -65,6 +65,16 @@
     <string name="item_name">Name</string>
     <string name="item_position">Position</string>
 
+    /Bocaya/
+    <string name="Boracay">Boracay</string>
+    <string name="code">5D4N</string>
+    <string name="precio">$349</string>
+    <string name="Philippines">Philippines</string>
+    <string name="Overview">Overview</string>
+    <string name="textBocaya">Spend 5 days and 4 nights in one of the best islands in the world! Bask in the sun while walking in the white sand beach and enjoy the night partying at the popular seaside bars.</string>
+    <string name="Photos">Photos</string>
+    <string name="Book">Book Now</string>
+
 
     /Offers/
     <string name="txt_visa_credit">your VISA credit or</string>
@@ -88,7 +98,7 @@
     <string name="from">
         From
     </string>
-
+    <string name="view_details">View Details</string>
 
 
 </resources>
