@@ -26,16 +26,10 @@ To run this project on your local machine:
    git clone https://github.com/yourusername/FlightBookingApp.git
 ## Screenshots
 
-![home](https://github.com/user-attachments/assets/80e0f1f4-855d-4e5f-b00b-9ccb62761526)
+![home](https://github.com/user-attachments/assets/80e0f1f4-855d-4e5f-b00b-9ccb62761526) ![Trending destination](https://github.com/user-attachments/assets/4d48929f-4ac5-4855-95cc-a23b237a0497)
 
-![Trending destination](https://github.com/user-attachments/assets/4d48929f-4ac5-4855-95cc-a23b237a0497)
+![Search-home](https://github.com/user-attachments/assets/fdb97712-009a-4e4e-933f-09c908270472) ![Search](https://github.com/user-attachments/assets/6cb73794-34a0-468a-af9f-e67347a1b5db)
 
-![Search-home](https://github.com/user-attachments/assets/fdb97712-009a-4e4e-933f-09c908270472)
-
-![Search](https://github.com/user-attachments/assets/6cb73794-34a0-468a-af9f-e67347a1b5db)
-
-![Offers](https://github.com/user-attachments/assets/9e4f522e-9647-4eea-b195-0ac5f6fadb38)
-
-![profile](https://github.com/user-attachments/assets/0ef3d5a2-d001-49a0-a869-9e0573f721a2)
+![Offers](https://github.com/user-attachments/assets/9e4f522e-9647-4eea-b195-0ac5f6fadb38) ![profile](https://github.com/user-attachments/assets/0ef3d5a2-d001-49a0-a869-9e0573f721a2)
 
 ![options](https://github.com/user-attachments/assets/3822c1ee-1e2e-4091-a66f-3af50df7a4ce)
